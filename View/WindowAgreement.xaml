@@ -1,0 +1,71 @@
+﻿<Window x:Class="DB2.View.WindowAgreement"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DB2.View"
+        mc:Ignorable="d"
+        Title="Договор" Height="320" Width="400">
+    <Grid>
+        <StackPanel Orientation="Vertical" Height="300" Margin="0,8,0,0" Grid.Row="1" Grid.RowSpan="3">
+            <TextBlock Text="Клиент" Width="90"/>
+            <ComboBox
+                SelectedValue="{Binding Path=PersonId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                SelectedValuePath="Id" Width="200">
+
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" >
+                            <TextBlock Text="{Binding Path=Shifer}" />
+                            <TextBlock Text="  "  />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+            <TextBlock Text="Статус договора" Width="90"/>
+            <ComboBox
+                SelectedValue="{Binding Path=StatusId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                SelectedValuePath="Id" Width="200">
+
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" >
+                            <TextBlock Text="{Binding Path=Status}" />
+                            <TextBlock Text="  "  />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+
+            <TextBlock Text="Тип договора" Width="90"/>
+            <ComboBox
+                SelectedValue="{Binding Path=TypeId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                SelectedValuePath="Id" Width="200">
+
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" >
+                            <TextBlock Text="{Binding Path=Type}" />
+                            <TextBlock Text="  "  />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+
+
+            <TextBlock Width="110" Text="Номер договора"/>
+            <TextBox Width="120" x:Name="tbNumber" />
+            <TextBlock Width="150" Text="Дата заключения договора"/>
+            <DatePicker Width="120" x:Name="tbDataOpen" />
+            <TextBlock Width="140" Text="Дата закрытия договора"/>
+            <DatePicker Width="120" x:Name="tbDataClose" />
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="btOK" Content="Подтвердить " Height="30" Click="btOK_Click" IsDefault="True" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

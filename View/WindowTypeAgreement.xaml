@@ -1,0 +1,19 @@
+﻿<Window x:Class="DB2.View.WindowTypeAgreement"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DB2.View"
+        mc:Ignorable="d"
+          Title="Тип" Height="150" Width="400">
+    <Grid>
+        <StackPanel Orientation="Vertical" Height="80">
+            <TextBlock Width="100" Text="Тип договора:"/>
+            <TextBox x:Name="tbTypeAgreement" Width="250"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="btOK" Content="Подтвердить " Margin="5" Height="20" Click="btOK_Click" IsDefault="True" />
+                <Button x:Name="btConcel" Content="Отменить" Margin="5" Height="20" IsCancel="True" Click="btConcel_Click" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,139 @@
+﻿<Window x:Class="DB2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DB2"
+        mc:Ignorable="d"
+         Title="MainWindow" Height="450" Width="900">
+    <TabControl Margin="5">
+        <TabItem Header="Договоры">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button x:Name="btLoad" Content="Загрузить" Click="btLoad_Click" Margin="5,5,10,5" />
+                    <Button x:Name="btAdd" Content="Добавить" Click="btAdd_Click" Margin="5,5,10,5" />
+                    <Button x:Name="btEdit" Content="Редактировать" Click="btEdit_Click" Margin="5,5,10,5" />
+                    <Button x:Name="btDelete" Content="Удалить" Click="btDelete_Click" Margin="5,5,10,5" />
+                </StackPanel>
+                <StackPanel Height="15" Grid.Row="1">
+                    <ProgressBar  x:Name="ProgressBarAgreement" IsIndeterminate="True" Height="10" Width="200"
+                         VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Visibility="Collapsed"/>
+                </StackPanel>
+
+                <ListView x:Name="lvAgreement" Margin="5" Grid.Row="2">
+                    <ListView.View>
+                        <GridView>
+                            <GridView.Columns>
+                                <GridViewColumn Header="Клиент"  Width="70" DisplayMemberBinding="{Binding Path=Person.Shifer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                <GridViewColumn Header="Статус" Width="120" DisplayMemberBinding="{Binding Path=StatusAgreement.Status, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                <GridViewColumn Header="Тип" Width="140" DisplayMemberBinding="{Binding Path=TypeAgreement.Type, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                <GridViewColumn Header="Номер договора" Width="130" DisplayMemberBinding="{Binding Path=Number, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                <GridViewColumn Header="Дата заключения договора" Width="180" DisplayMemberBinding="{Binding Path=DataOpen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                <GridViewColumn Header="Дата закрытия договора" Width="180" DisplayMemberBinding="{Binding Path=DataClouse, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            </GridView.Columns>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Клиенты">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button x:Name="btLoadPer" Content="Загрузить" Click="btLoadPer_Click" Margin="5,5,10,5" />
+                    <Button x:Name="btAddPer" Content="Добавить" Click="btAddPer_Click" Margin="5,5,10,5" />
+                    <Button x:Name="btEditPer" Content="Редактировать" Click="btEditPer_Click" Margin="5,5,10,5" />
+                    <Button x:Name="btDeletePer" Content="Удалить" Click="btDeletePer_Click" Margin="5,5,10,5" />
+                </StackPanel>
+                <StackPanel Height="15" Grid.Row="1">
+                    <ProgressBar  x:Name="ProgressBarPerson" IsIndeterminate="True" Height="10" Width="200"
+                         VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Visibility="Collapsed"/>
+                </StackPanel>
+                <ListView x:Name="lvPerson" Margin="5" Grid.Row="2" >
+                    <ListView.View>
+                        <GridView>
+                            <GridView.Columns>
+                                <GridViewColumn Header="Шифр клиента"  Width="120" DisplayMemberBinding="{Binding Path=Shifer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                <GridViewColumn Header="Тип клиента" Width="140" DisplayMemberBinding="{Binding Path=Type, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                                <GridViewColumn Header="Инн" Width="140" DisplayMemberBinding="{Binding Path=Inn, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                                <GridViewColumn Header="Дата регистрации клиента" Width="180" DisplayMemberBinding="{Binding Path=Data, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                            </GridView.Columns>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Grid>
+
+        </TabItem>
+
+        <TabItem Header="Статус договора">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button x:Name="btLoadSt" Content="Загрузить" Click="btLoadSt_Click" Margin="5,5,10,5" />
+                    <Button x:Name="btAddSt" Content="Добавить" Click="btAddSt_Click" Margin="5,5,10,5" />
+                    <Button x:Name="btEditSt" Content="Редактировать" Click="btEditSt_Click" Margin="5,5,10,5" />
+                    <Button x:Name="btDeleteSt" Content="Удалить" Click="btDeleteSt_Click" Margin="5,5,10,5" />
+                </StackPanel>
+                <StackPanel Height="15" Grid.Row="1">
+                    <ProgressBar  x:Name="ProgressBarStatusAgreement" IsIndeterminate="True" Height="10" Width="200"
+                         VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Visibility="Collapsed"/>
+                </StackPanel>
+                <ListView x:Name="lvStatusAgreement" Margin="5" Grid.Row="2" >
+                    <ListView.View>
+                        <GridView>
+                            <GridView.Columns>
+                                <GridViewColumn Header="Статус договора"  Width="280" DisplayMemberBinding="{Binding Path=Status, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                            </GridView.Columns>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Тип договора">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="179*"/>
+                    <ColumnDefinition Width="42*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="289,0,0,0">
+                    <Button x:Name="btLoadTp" Content="Загрузить" Click="btLoadTp_Click" Margin="5,5,10,5" />
+                    <Button x:Name="btAddTp" Content="Добавить" Click="btAddTp_Click" Margin="5,5,10,5" />
+                    <Button x:Name="btEditTp" Content="Редактировать" Click="btEditTp_Click" Margin="5,5,10,5" />
+                    <Button x:Name="btDeleteTp" Content="Удалить" Click="btDeleteTp_Click" Margin="5,5,10,5" />
+                </StackPanel>
+                <StackPanel Height="15" Grid.Row="1" Grid.ColumnSpan="2">
+                    <ProgressBar  x:Name="ProgressBarTypeAgreement" IsIndeterminate="True" Height="10" Width="200"
+                         VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Visibility="Collapsed"/>
+                </StackPanel>
+                <ListView x:Name="lvTypeAgreement" Margin="5,5,5,5" Grid.Row="2" Grid.ColumnSpan="2" >
+                    <ListView.View>
+                        <GridView>
+                            <GridView.Columns>
+                                <GridViewColumn Header="Тип договора"  Width="200" DisplayMemberBinding="{Binding Path=Type, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            </GridView.Columns>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Window>
+
